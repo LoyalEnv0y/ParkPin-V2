@@ -1,0 +1,75 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 126px;
+    margin-bottom: 200px;
+    .map-container{
+        width: 100%;
+        height: 600px;
+        margin-bottom: 100px;
+    }
+    .col2{
+        justify-content: center;
+        display: flex;
+        width: 100%;
+    }
+    .allparkinglots-container{
+
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        width: 90%;
+        height: auto;
+        margin-bottom: 100px;
+        h2{
+            font-size: 25px;
+            font-weight: bold;
+            font-family: $font-stack;
+        }
+        .card{
+            img{
+                max-height: 350px;
+                height: 350px;
+                min-height: 350px;
+            }
+            img:hover{
+                filter:blur(1px) grayscale(100);
+                border: 1px solid black;
+                transition: ease-in-out 0.3s;
+                cursor:pointer;
+            }
+        }
+        .card-footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+@media screen and (max-width: $tablet) {
+}
+
+@media screen and (max-width: $phone) {
+    .main-container
+    {
+        top: 85px;
+    }
+    .map-container{
+        height: 350px !important;
+    }
+    .card{
+        img{
+            max-height: 250px !important;
+            height: 250px !important;
+            min-height: 250px !important;
+        }
+    }
+  }
+  
+  /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: $sphone) {
+
+  }

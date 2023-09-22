@@ -1,0 +1,111 @@
+.header{
+    height: 60px !important;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center !important;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    a{
+        color: black;
+        span{
+            font-size: 12px;
+        }
+    }
+    img{
+        padding: 0 !important;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.main-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    top: 75px;
+    margin-bottom: 300px;
+    .banner-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 600px;
+        min-height: 600px;
+        align-items: center;
+        justify-content: center;
+        h2{
+            font-size: 50px;
+            text-transform: uppercase;
+            font-family: $font-stack;
+            font-weight: bold;
+            position: absolute;
+            top: 15%;
+            letter-spacing: 10px;
+        }
+        img{
+            width: auto;
+            height: auto;
+        }
+    }
+}
+.addcar-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    form{
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 20px;
+    }
+}
+#colorpicker{
+    display: flex !important;
+    flex-direction: row !important;
+    input{
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 799px) {
+    .addcar-container{
+        form{
+            width: 80% !important;
+        }
+    }
+    .main-container{
+        top: 75px;
+    }
+    .banner-container{
+        width: 100%;
+        height: 300px !important;
+        min-height: 300px !important;
+        h2{
+            font-size: 20px !important;
+            top: 20% !important;
+        }
+        img{
+            width: 90% !important;
+        }
+    }
+  }
+  
+  /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+
+  }

@@ -1,0 +1,154 @@
+.header{
+    height: 60px !important;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center !important;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    a{
+        color: black;
+        span{
+            font-size: 12px;
+        }
+    }
+    img{
+        padding: 0 !important;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.main-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    top: 75px;
+    margin-bottom: 300px;
+    .banner-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 600px;
+        min-height: 600px;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: auto;
+            height: auto;
+            transition: ease-in-out 2s;
+        }
+        img:hover{
+            transform: scale(.8);
+        }
+    }
+}
+
+/*****************HIDDEN**********************/
+
+.hidden{
+    transition: ease-in-out 0.5s !important;
+    display: none !important;
+}
+
+/*        
+*/
+.col-sm-10{
+    .input-group{
+        input::placeholder{
+            font-size: 14px;
+            font-family: $font-stack;
+            text-transform: uppercase;
+        }
+    }
+}                                 
+.addcar-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    form{
+        h2{
+            font-size: 25px;
+            font-weight: bold;
+            font-family: $font-stack;
+            margin-bottom: 50px;
+        }
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 20px;
+    }
+}
+
+.mobile-text{
+    display: none !important;
+}
+.input-group-text{
+    font-size: 14px !important;
+}
+.btn-delete{
+    display: flex !important;
+}
+.mobile-sembols-info{
+    display: none;
+    list-style: none;
+    padding: 0 !important;
+    li{
+        i{
+            color: black;
+        }
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 799px) {
+    .mobile-sembols-info{
+        display: flex;
+        flex-direction: column;
+    }
+    .addcar-container{
+        form{
+            width: 90% !important;
+        }
+    }
+    .main-container{
+        top: 75px;
+    }
+    .banner-container{
+        width: 100%;
+        height: auto !important;
+        min-height: 300px !important;
+        padding: 30px;
+        img{
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+    .input-group-text{
+        display: none !important;
+    }
+    .mobile-text{
+        display: flex !important;
+        font-size: 14px !important;
+    }
+  } 
+  
+  /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+
+  }

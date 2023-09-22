@@ -1,0 +1,391 @@
+$discord-grisi : #2C2F33;
+.main-container{
+    position: relative;
+    top: 126px;
+    width: 100%;
+    height: auto;
+}
+.carousel-item{
+    max-height: 800px !important;
+    height: 800px;
+    img{
+        max-height: 100% !important;
+        height: 800px !important;
+        min-height: 800px !important;
+    }
+}
+.container-fluid{
+    margin-bottom: 200px;
+    width: 100% !important;
+    height: auto;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+    .sidebar{
+        width: 25%;
+        border-radius: 0px 15px 15px 0px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: $primary-color;
+        z-index: 0;
+        padding: 20px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        .col-md-4{
+            min-height: 100%;
+            img{
+                min-height: 100%;
+            }
+        }
+    }
+    .card{
+        background-color: rgb(241, 241, 241);
+        color: black !important;
+        border: 1px solid black;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        .card-text{
+            font-family: $font-stack !important;
+            color: black !important;
+            small{
+                font-family: $font-stack !important;
+                color: black !important;
+            }
+        }
+    }
+    .checked{
+        color: orange !important;
+    }
+    .mainbar{
+        width: 100% !important;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        .slot-container{
+            width: 100%;
+            height: auto;
+            margin-bottom: 100px;
+            h2{
+                font-family: $font-stack;
+                font-size: 25px;
+                font-weight: bold;
+            }
+            .slot-table{
+                min-height: 200px;
+                width: 100%;
+                font-family: $font-stack;
+                display: flex;
+                flex-direction: column;
+                height: auto;
+            }
+        }
+        .price-container{
+            width: 100%;
+            height: auto;
+            margin-bottom: 100px;
+            h2{
+                font-family: $font-stack;
+                font-size: 25px;
+                font-weight: bold;
+            }
+        }
+        .comment-container{
+            width: 100%;
+            height: auto !important;
+            h2{
+                font-size: 25px;
+                font-weight: bold;
+            }
+            .inner-comment-container{
+                width: 100%;
+                height: auto !important;
+                display: flex;
+                flex-direction: column;
+            }
+        }        
+    }
+}
+.content-item {
+    padding:30px 0;
+	background-color:#FFFFFF;
+}
+.row{
+    justify-content: center;
+    flex-direction: row;
+}
+.col-sm-3{
+    img{
+        width: 100px;
+        height: 100px;
+    }
+}
+.content-item.grey {
+	background-color:#F0F0F0;
+	padding:50px 0;
+	height:100%;
+}
+
+.content-item h2 {
+	font-weight:700;
+	font-size:35px;
+	line-height:45px;
+	text-transform:uppercase;
+	margin:20px 0;
+}
+
+.content-item h3 {
+	font-weight:400;
+	font-size:20px;
+	color:#555555;
+	margin:10px 0 15px;
+	padding:0;
+}
+
+.content-headline {
+	height:1px;
+	text-align:center;
+	margin:20px 0 70px;
+}
+
+.content-headline h2 {
+	background-color:#FFFFFF;
+	display:inline-block;
+	margin:-20px auto 0;
+	padding:0 20px;
+}
+
+.grey .content-headline h2 {
+	background-color:#F0F0F0;
+}
+
+.content-headline h3 {
+	font-size:14px;
+	color:#AAAAAA;
+	display:block;
+}
+
+#comments {
+    box-shadow: 0 -1px 6px 1px rgba(0,0,0,0.1);
+	background-color:#FFFFFF;
+}
+
+#comments form {
+	margin-bottom:30px;
+}
+
+#comments .btn {
+	margin-top:7px;
+    background-color: $facebook;
+    color: white;
+    width: 60px;
+    height: 30px;
+    padding: 0 !important;
+    font-size: 14px;
+}
+#comments .btn:hover {
+    background-color: white;
+    color: $facebook;
+    border: 2px solid $facebook;
+    transition: ease-in-out 0.150s;
+}
+
+#comments form fieldset {
+	clear:both;
+}
+
+#comments form textarea {
+	height:100px;
+}
+
+#comments .media {
+	border-top:1px dashed #DDDDDD;
+	padding:20px 0;
+	margin:0;
+    margin-bottom: 50px !important;
+}
+
+#comments .media > .pull-left {
+    margin-right:20px;
+}
+
+#comments .media img {
+	max-width:100px;
+}
+
+#comments .media h4 {
+	margin:0 0 10px;
+    font-family: $font-stack;
+}
+
+#comments .media h4 span {
+	font-size:14px;
+	float:right;
+	color:#999999;
+}
+
+#comments .media p {
+	margin-bottom:14px;
+	text-align:justify;
+    font-family: $font-stack;
+}
+
+#comments .media-detail {
+	margin:0;
+}
+
+#comments .media-detail li {
+	color:#AAAAAA;
+	font-size:12px;
+	padding-right: 10px;
+	font-weight:600;
+}
+
+#comments .media-detail a:hover {
+	text-decoration:underline;
+}
+
+#comments .media-detail li:last-child {
+	padding-right:0;
+}
+
+#comments .media-detail li i {
+	color:#666666;
+	font-size:15px;
+	margin-right:10px;
+}
+
+.likeButton{
+    background-color: $facebook;
+    color: white;
+    font-size: 14px !important;
+    border: 1px solid black;
+    padding: 3px;
+    min-width: 80px;
+    i{
+        color: white !important;
+        font-size: 14px !important;
+    }
+}
+.deleteButton{
+    background-color: darkred;
+    color: white;
+    font-size: 14px !important;
+    border: 1px solid black;
+    padding: 3px;
+    min-width: 70px;
+    i{
+        color: white !important;
+        font-size: 14px !important;
+    }
+}
+.replyButton{
+    color: black;
+    font-size: 14px;
+    border: 1px solid black;
+    padding: 3px;
+    min-width: 70px;
+    i{
+        color: black;
+        font-size: 14px !important;
+    }
+}
+.media-heading{
+    font-size: 20px;
+    font-weight: bold;
+}
+#likereplybtn{
+    margin-top: 20px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.comment-stars{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    i{
+        margin: 2px !important;
+        font-size: 14px !important;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .container-fluid{
+        flex-direction: column !important;
+    }
+    .sidebar{
+        border-radius: 0px !important;
+        flex-direction: row;
+        width: 100% !important;
+        height: auto !important;
+        .card{
+            width: 100%;
+            height: auto !important;
+            justify-content: center !important;
+            border-radius: 10px !important;
+            overflow: hidden;
+            ul{
+                li{
+                    font-size: 14px;
+                }
+            }
+            img{
+                display: none;
+            }
+            .card-title{
+                font-size: 18px;
+            }
+            .card-text{
+                font-size: 14px !important;
+            }
+            .card-body{
+                font-size: 14px;
+            }
+        }
+    }
+    .carousel-item{
+        max-height: 600px !important;
+        height: 600px !important;
+        img{
+            max-height: 600px !important;
+            height: 600px !important;
+            min-height: 600px !important;
+        }
+    }
+}
+@media screen and (max-width: 799px) {
+    .media-heading{
+        font-size: 18px !important;
+    }
+    .main-container{
+        top: 85px !important;
+    }
+    .carousel-item{
+        max-height: 400px !important;
+        height: 400px !important;
+        img{
+            max-height: 400px !important;
+            height: 400px !important;
+            min-height: 400px !important;
+        }
+    }
+    #likereplybtn{
+        button{
+            i{
+            margin: 0 !important;
+            }
+            align-items: center !important;
+            padding: 3 !important;
+            width: auto !important;
+            min-width: 30px !important;
+            span{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+}

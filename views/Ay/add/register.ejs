@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="Arabanıza otopark rezervasyonu yapmak için doğru sayfadasınız. Lütfen bilgileri eksiksiz doldurunuz.">
+  <meta name="keywords" content="otopark,parkpin,rezervasyon,akıllı otopark,park etme,havalimanı">
+  <meta name="author" content="Ayberk Yavaş">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rezervasyon Yap | Parkpin</title>
+  <link rel="stylesheet" href="/cssAy/add/register.css" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.png">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!--<link rel="stylesheet" href="../css/main.css"/> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <!-- FONT ICIN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/ec613c6134.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!--================ Loader Başlangıç =================-->
+  <div id="loader"></div>
+  <!--================ Loader Bitiş =================-->
+
+  <!--================ Demo Başlangıç =================-->
+
+  <div id="demo-div">
+    <div class="shineline"></div>
+    <ul>
+      <li>
+        <h3>Demo Version - V1.2 - <a href="https://discord.gg/xtBA3vsj" target="_blank"
+            style="color: white; text-decoration: none;">
+            <i class="fa-brands fa-discord"></i>
+          </a></h3>
+      </li>
+    </ul>
+  </div>
+
+  <!--================ Demo Bitiş =================-->
+  <main>
+    <div class="mainContainer">
+      <div class="brandContainer">
+        <div class="brand">
+          <div>
+            <img src="/img/logo/parkpinDot.png" alt="Parkpin Logosu">
+            <h6><a style="text-decoration: none; color: black; cursor: default;">Parkpin Akıllı Otopark</a></h6>
+          </div>
+        </div>
+        <div class="brandContainerBody">
+          <div class="sloganContainer">
+            <h5>Rezervasyon yapın <br>sizden başkası park etmesin! <i class="fa-solid fa-heart"></i></h5>
+          </div>
+          <div class="moreoptionsContainer">
+            <h6> <i class="fa-solid fa-arrow-left"></i> <a href="/parkingLots/<%= parkingLot._id %>">Geri Dön</a></h6>
+          </div>
+        </div>
+      </div>
+      <div class="form-container">
+        <form action="/parkingLots/<%= parkingLot._id %>/reservation" method="POST" class="validated-form"
+          id="reserve-form">
+          <h2>Rezervasyon yap</h2>
+          <h5>Bilgileri eksiksiz doldurduktan sonra rezervasyon tamamlanacaktır.</h5>
+          <br>
+          <div class="mb-3">
+            <label class="form-label">Arabanızı Seçiniz</label>
+            <select class="form-select" aria-label="Default select example" required name="reservation[carId]">
+              <% for(let car of user.cars) { %>
+                <option value="<%= car._id %>" >
+                  <%= `${car.brand} - ${car.model}` %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Slot seçiniz.</label>
+            <div class="slot-table">
+              <div class="slot-map mb-3">
+                <div class="slots-display">
+                  <% let j = 0; %>
+                  <% for(let slot of parkingLot.floors[0].slots) { %>
+                    <button class="slot-button <%= (slot.isFull) ? 'unavailable' : 'available' %>" type="button" data-slot-id="<%= slot._id %>" <%= (slot.isFull) ? 'disabled' : '' %>>
+
+                      <%= j + 1 %>
+                    </button>
+                    <% j++ %>
+                  <% } %>
+                </div>
+
+                <div class="floor-display">
+                  <% for(let floor of parkingLot.floors) { %>
+                    <button class="floor-button" type="button" data-floor-id="<%= floor._id %>">
+                        <%= floor.floorNum %>
+                    </button>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Park Planını Seçiniz</label>
+            <select class="form-select" name="reservation[pricePairId]" required>
+              <% for(let currTable of parkingLot.priceTable) { %>
+                <option value="<%= currTable._id %>">
+                  <%= `${currTable.start} - ${currTable.end} -> ${currTable.price}` %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="appt" class="form-label">Saat kaçta orada olacaksın?</label>
+            <input type="time" id="appt" name="reservation[time]" required>
+          </div>
+          <!-- Gönderince Hesabim sayfasına yönlendirilmesini talep ediyorum böylece rezervasyonlarımdan ödeme yapsın.-->
+          <button class="btn btn-primary">Rezervasyon Yap</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+  <script src="/js/floorSlotButtons.js"></script>
+  <script src="/jsAy/main.js"></script>
+  <script src="/jsAy/kaydol.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="/js/floorSlotButtons.js"></script>
+</body>
+
+</html>

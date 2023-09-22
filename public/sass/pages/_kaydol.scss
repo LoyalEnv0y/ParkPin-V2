@@ -1,0 +1,390 @@
+    @import "../utilities/variables";
+    @import '../utilities/reset';
+
+    .mainContainer{
+        flex-direction: row;
+        position: relative;
+        top: 25px;
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        .brandContainer{
+            width: 20%;
+            height: 100%;
+            background-color: $primary-color;
+            background-image: url("../../img/pages/kaydol/signupbg.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 70%;
+            display: flex;
+            flex-direction: column;
+            .brand{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                height: 10%;
+                div{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    width: auto;
+                    height: auto;
+                    margin-left: 60px;
+                    img{
+                        width: 35px;
+                        height: 35px;
+                    }
+                    h6{
+                        margin-top: 6px;
+                        font-family: $font-stack;
+                        font-weight: bold;
+                        text-align: center;
+                        font-size: 16px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            .brandContainerBody{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 90%;
+                .sloganContainer{
+                    display: flex;
+                    position: relative;
+                    top: 110px;
+                    width: 70%;
+                    height: auto;
+                    h5{
+                        font-family: $font-stack;
+                        font-weight: bold;
+                        font-size: 25px;
+                        text-align: left;
+                    }
+                }
+                .moreoptionsContainer{
+                    display: flex;
+                    width: 70%;
+                    height: 20px;
+                    margin-bottom: 50px;
+                    h6 a{
+                        font-family: $font-stack;
+                        color: black;
+                        font-weight: bold;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+        }
+        .signupContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 100%;
+            background-color: $background-color;
+            .signupContainer-in{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                width: 80%;
+                height: 80%;
+            }
+        }
+        .someTextsContainer{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 25%;
+            .someTexts{
+                font-family: $font-stack;
+                font-weight: bold;
+                font-size: 22px;
+            }
+            h5{
+                font-size: 18px !important;
+            }
+            h6{
+                font-size: 16px !important;
+                color: rgb(100, 100, 100);
+                font-weight: normal;
+            }
+        }
+        .registerForm{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+            height: auto;
+            .nameinfoContainer{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+                div{
+                    width: 48%;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .contactinfoContainer{
+                display: flex;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                div{
+                    width: 48%;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .personalinfoContainer{
+                display: flex;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                div{
+                    width: 48%;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .profilepic-container{
+                    height: 100%;
+                    width: 48%;
+                    display: flex;
+                    justify-content: center;
+                    input{
+                        background-color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items:center;
+                        padding-top: 10px;
+                        padding-left: 30%;
+                    }
+                }
+            }
+            .passwordContainer{
+                display: flex;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                div{
+                    position: relative;
+                    width: 48%;
+                    display: flex;
+                    flex-direction: column;
+                }
+                input:valid ~ .faeye {
+                    display: block;
+                }
+                .faeye{
+                    position: absolute;
+                    right: 15px;
+                    top: 51%;
+                    font-size: 20px;
+                    color: $primary-color;
+                    cursor: pointer;
+                    display: none;
+                    i.hide-btn:before{
+                        content:"fa-sharp fa-solid fa-eye-slash";
+                    }
+                }
+            }
+            .labelClass{
+                font-family: $font-stack;
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+            .inputClass{
+                height: 50px;
+                padding-left: 15px;
+                border-radius: 5px;
+                border: 1px solid black;
+                outline: none;
+            }
+            .checkboxContainer{
+                display: flex;
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+                margin-bottom: 10px;
+                div{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;    
+                    width: 50%;
+                    height: auto;
+                    margin-top: 10px;
+                    .checkboxClass{
+                        display: flex;
+                        width: 15px;
+                        height: 15px;
+                        margin-right: 10px;
+                    }
+                    .checkboxlabelClass{
+                        font-family: $font-stack;
+                        font-size: 14px;                    
+                    }
+
+                }
+            }
+            .submitbuttonContainer{
+                margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                width: 100%;
+                height: auto;
+                input{
+                    width: 23%;
+                    height: 50px;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    color: white;
+                    font-family: $font-stack;
+                    background-color: $button-color;
+                }
+                input:hover{
+                    background-color: $primary-color;
+                    color: black;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: $tablet) {
+        
+    }
+    @media screen and (max-width: $phone) {
+        .mainContainer{
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            .brandContainer{
+                padding-top: 20px;
+                width: 100%;
+                height: 30%;
+                flex-direction: columns;
+                background-image: none;
+                .brand{
+                    width: 100%;
+                    height: 10%;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                    div{
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        margin-left: 0px;
+                    }
+                }
+                .brandContainerBody{
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                    justify-content: flex-start;
+                    .sloganContainer{
+                        position: relative;
+                        top: 0px;
+                        width: 80%;
+                        height: auto;
+                        margin-bottom: 10px;
+                        h5{
+                            font-size: 20px;
+                        }
+                    }
+                    .moreoptionsContainer{
+                        width: 80%;
+                        height: 20px;
+                        margin-bottom:20px;
+                        h6 a{
+                            font-family: $font-stack;
+                            color: black;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .signupContainer{
+            width: 100% !important;
+            .signupContainer-in{
+                width: 100%;
+                height: auto;
+                margin-top: 50px;
+            }
+        }   
+        .checkboxContainer{
+            display: flex;
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            margin-bottom: 10px;
+            div{
+                display: flex;
+                align-items: center;
+                flex-direction: row;    
+                width: 100% !important;
+                height: auto;
+                margin-top: 10px;
+                .checkboxClass{
+                    width: 10% !important;
+                    display: flex;
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 10px;
+                }
+                .checkboxlabelClass{
+                    font-family: $font-stack;
+                    font-size: 14px !important;
+                    width: 90% !important; 
+                }
+
+            }
+        }
+        form{
+            label{
+                font-size: 14px !important;
+            }
+            input::placeholder{
+                font-size: 12px !important;
+            }
+            .inputClass{
+                font-size: 12px; 
+            }
+        }
+        .signupContainer{
+            width: 100% !important;
+            .signupContainer-in{
+                width: 80% !important;
+            }
+        }
+        .submitbuttonContainer{
+            input{
+                font-size: 14px !important;
+                width: 100px !important;
+            }
+        }
+    }
+    @media screen and (max-width: $sphone) {
+
+    }/*# sourceMappingURL=giris-yap.css.map */

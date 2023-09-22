@@ -1,0 +1,573 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: #dceffd;
+  font-family: 100% "Inter", sans-serif;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.mainContainer {
+  flex-direction: row;
+  position: relative;
+  top: 25px;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.mainContainer .brandContainer {
+  width: 20%;
+  height: 100%;
+  background-color: #FFDD63;
+  background-image: url("../../img/pages/kaydol/signupbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer .brandContainer .brand {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+}
+.mainContainer .brandContainer .brand div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: auto;
+  height: auto;
+  margin-left: 60px;
+}
+.mainContainer .brandContainer .brand div img {
+  width: 35px;
+  height: 35px;
+}
+.mainContainer .brandContainer .brand div h6 {
+  margin-top: 6px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.mainContainer .brandContainer .brandContainerBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
+}
+.mainContainer .brandContainer .brandContainerBody .sloganContainer {
+  display: flex;
+  position: relative;
+  top: 110px;
+  width: 70%;
+  height: auto;
+}
+.mainContainer .brandContainer .brandContainerBody .sloganContainer h5 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: left;
+}
+.mainContainer .brandContainer .brandContainerBody .moreoptionsContainer {
+  display: flex;
+  width: 70%;
+  height: 20px;
+  margin-bottom: 50px;
+}
+.mainContainer .brandContainer .brandContainerBody .moreoptionsContainer h6 a {
+  font-family: "Inter", sans-serif;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+.mainContainer .signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  background-color: #dceffd;
+}
+.mainContainer .signupContainer .signupContainer-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 80%;
+  height: 80%;
+}
+.mainContainer .someTextsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 25%;
+}
+.mainContainer .someTextsContainer .someTexts {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+}
+.mainContainer .someTextsContainer h5 {
+  font-size: 18px !important;
+}
+.mainContainer .someTextsContainer h6 {
+  font-size: 16px !important;
+  color: rgb(100, 100, 100);
+  font-weight: normal;
+}
+.mainContainer .registerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+}
+.mainContainer .registerForm .nameinfoContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.mainContainer .registerForm .nameinfoContainer div {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer .registerForm .contactinfoContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.mainContainer .registerForm .contactinfoContainer div {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer .registerForm .personalinfoContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.mainContainer .registerForm .personalinfoContainer div {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer .registerForm .personalinfoContainer .profilepic-container {
+  height: 100%;
+  width: 48%;
+  display: flex;
+  justify-content: center;
+}
+.mainContainer .registerForm .personalinfoContainer .profilepic-container input {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 30%;
+}
+.mainContainer .registerForm .passwordContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.mainContainer .registerForm .passwordContainer div {
+  position: relative;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer .registerForm .passwordContainer input:valid ~ .faeye {
+  display: block;
+}
+.mainContainer .registerForm .passwordContainer .faeye {
+  position: absolute;
+  right: 15px;
+  top: 51%;
+  font-size: 20px;
+  color: #FFDD63;
+  cursor: pointer;
+  display: none;
+}
+.mainContainer .registerForm .passwordContainer .faeye i.hide-btn:before {
+  content: "fa-sharp fa-solid fa-eye-slash";
+}
+.mainContainer .registerForm .labelClass {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.mainContainer .registerForm .inputClass {
+  height: 50px;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+}
+.mainContainer .registerForm .checkboxContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.mainContainer .registerForm .checkboxContainer div {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 50%;
+  height: auto;
+  margin-top: 10px;
+}
+.mainContainer .registerForm .checkboxContainer div .checkboxClass {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.mainContainer .registerForm .checkboxContainer div .checkboxlabelClass {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+.mainContainer .registerForm .submitbuttonContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+}
+.mainContainer .registerForm .submitbuttonContainer input {
+  width: 23%;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  background-color: #5A54F2;
+}
+.mainContainer .registerForm .submitbuttonContainer input:hover {
+  background-color: #FFDD63;
+  color: black;
+}
+
+@media screen and (max-width: 799px) {
+  .mainContainer {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .mainContainer .brandContainer {
+    padding-top: 20px;
+    width: 100%;
+    height: 30%;
+    flex-direction: columns;
+    background-image: none;
+  }
+  .mainContainer .brandContainer .brand {
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .mainContainer .brandContainer .brand div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+  }
+  .mainContainer .brandContainer .brandContainerBody {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+  }
+  .mainContainer .brandContainer .brandContainerBody .sloganContainer {
+    position: relative;
+    top: 0px;
+    width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .mainContainer .brandContainer .brandContainerBody .sloganContainer h5 {
+    font-size: 20px;
+  }
+  .mainContainer .brandContainer .brandContainerBody .moreoptionsContainer {
+    width: 80%;
+    height: 20px;
+    margin-bottom: 20px;
+  }
+  .mainContainer .brandContainer .brandContainerBody .moreoptionsContainer h6 a {
+    font-family: "Inter", sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .signupContainer {
+    width: 100% !important;
+  }
+  .signupContainer .signupContainer-in {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+  }
+  .checkboxContainer {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .checkboxContainer div {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100% !important;
+    height: auto;
+    margin-top: 10px;
+  }
+  .checkboxContainer div .checkboxClass {
+    width: 10% !important;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .checkboxContainer div .checkboxlabelClass {
+    font-family: "Inter", sans-serif;
+    font-size: 14px !important;
+    width: 90% !important;
+  }
+  form label {
+    font-size: 14px !important;
+  }
+  form input::-moz-placeholder {
+    font-size: 12px !important;
+  }
+  form input::placeholder {
+    font-size: 12px !important;
+  }
+  form .inputClass {
+    font-size: 12px;
+  }
+  .signupContainer {
+    width: 100% !important;
+  }
+  .signupContainer .signupContainer-in {
+    width: 80% !important;
+  }
+  .submitbuttonContainer input {
+    font-size: 14px !important;
+    width: 100px !important;
+  }
+}
+
+#demo-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 25px;
+  color: white;
+  z-index: 3;
+}
+
+#demo-div > ul {
+  position: relative;
+  width: 100%;
+  height: 100% !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#demo-div > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  height: 100%;
+  margin: 1px;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#demo-div > ul > li > h3 {
+  margin: 0px;
+  font-size: 9px;
+  font-family: "Inter", sans-serif;
+}
+
+.shineline {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #FFDD63, transparent);
+  filter: blur(10px);
+  animation: flowing-line 3s infinite;
+}
+
+@keyframes flowing-line {
+  0%, 100% {
+    transform: translateX(0%);
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 799px) {
+  #demo-div > ul > li > h3 {
+    font-size: 7px;
+  }
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFDD63;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dceffd;
+}
+
+#loader {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  background: #FFDD63 url("../../img/loader/loading.gif") no-repeat center;
+  z-index: 999;
+  background-size: 500px;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 100px !important;
+  background-color: #FFDD63;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 25px;
+  z-index: 3;
+}
+
+#mainLogo {
+  display: flex;
+  position: relative;
+  top: 5px;
+  left: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#mainLogoDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#mainLogoDot > img {
+  width: 100%;
+  height: 92%;
+  cursor: pointer;
+}
+
+#mainLogo > h6 {
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  color: black;
+  line-height: 40px;
+  vertical-align: top;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 799px) {
+  .header {
+    height: 60px !important;
+  }
+  #mainLogoDot {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  #mainLogo > h6 {
+    text-align: center;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    color: black;
+    line-height: 40px;
+    vertical-align: top;
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+  #loader {
+    background-size: 400px !important;
+  }
+}/*# sourceMappingURL=kaydol.css.map */

@@ -1,0 +1,568 @@
+@charset "UTF-8";
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-color: #dceffd;
+  font-family: 100% "Inter", sans-serif;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.account-profile-mobile {
+  display: none !important;
+  margin-left: 36px;
+}
+
+.account-profile {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 120px;
+  height: 60px;
+}
+.account-profile .profile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+.account-profile .profile img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 799px) {
+  .account-profile {
+    width: 100%;
+  }
+  .profile {
+    width: auto !important;
+    display: flex !important;
+    left: 35px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .account-profile-mobile {
+    display: flex !important;
+  }
+}
+/* MENU AMK MENU ANASINI SİKTİĞİM MENYSY */
+.menu > li > a {
+  color: rgb(0, 0, 0);
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 14px !important;
+}
+
+.header .mainLogo {
+  float: left;
+  display: block;
+}
+
+.menu {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  overflow: hidden;
+  background-color: #FFDD63;
+}
+
+.menu a {
+  display: block;
+  padding: 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #f5d45d;
+}
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+.header .menu-icon {
+  padding: 28px 20px;
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+
+.header .menu-icon .nav-icon {
+  background: black;
+  display: block;
+  height: 2px;
+  width: 18px;
+  position: relative;
+  transition: background 0.2s ease-out;
+}
+
+.header .menu-icon .nav-icon:before {
+  background: black;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  top: 5px;
+}
+
+.header .menu-icon .nav-icon:after {
+  background: black;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  top: -5px;
+}
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:before {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+@media (min-width: 800px) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+  .header {
+    display: flex;
+  }
+  #mainLogo {
+    margin-left: 70px;
+  }
+  .menu {
+    margin-right: 70px;
+  }
+}
+#map {
+  height: 100% !important;
+  width: 100% !important;
+  background-color: red;
+}
+
+#demo-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 25px;
+  color: white;
+  z-index: 3;
+}
+
+#demo-div > ul {
+  position: relative;
+  width: 100%;
+  height: 100% !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#demo-div > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  height: 100%;
+  margin: 1px;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#demo-div > ul > li > h3 {
+  margin: 0px;
+  font-size: 9px;
+  font-family: "Inter", sans-serif;
+}
+
+.shineline {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #FFDD63, transparent);
+  filter: blur(10px);
+  animation: flowing-line 3s infinite;
+}
+
+@keyframes flowing-line {
+  0%, 100% {
+    transform: translateX(0%);
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 799px) {
+  #demo-div > ul > li > h3 {
+    font-size: 7px;
+  }
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFDD63;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dceffd;
+}
+
+#loader {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  background: #FFDD63 url("../../img/loader/loading.gif") no-repeat center;
+  z-index: 999;
+  background-size: 500px;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 100px !important;
+  background-color: #FFDD63;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 25px;
+  z-index: 3;
+}
+
+#mainLogo {
+  display: flex;
+  position: relative;
+  top: 5px;
+  left: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#mainLogoDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#mainLogoDot > img {
+  width: 100%;
+  height: 92%;
+  cursor: pointer;
+}
+
+#mainLogo > h6 {
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  color: black;
+  line-height: 40px;
+  vertical-align: top;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 799px) {
+  .header {
+    height: 60px !important;
+  }
+  #mainLogoDot {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  #mainLogo > h6 {
+    text-align: center;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    color: black;
+    line-height: 40px;
+    vertical-align: top;
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+  #loader {
+    background-size: 400px !important;
+  }
+}
+.footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.footer-menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("../../img/pages/home/wave2.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 15;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 14;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 15;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 14;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+@media screen and (max-width: 799px) {
+  .social-icon {
+    padding: 0 !important;
+  }
+  .social-icon__link {
+    font-size: 25px !important;
+  }
+  .footer p {
+    font-size: 12px !important;
+  }
+  .footer-menu {
+    margin: 0px !important;
+    padding: 0 !important;
+  }
+  .menu__link {
+    font-size: 14px !important;
+  }
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 126px;
+  margin-bottom: 200px;
+}
+.main-container .map-container {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 100px;
+}
+.main-container .col2 {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+.main-container .allparkinglots-container {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+  width: 90%;
+  height: auto;
+  margin-bottom: 100px;
+}
+.main-container .allparkinglots-container h2 {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+}
+.main-container .allparkinglots-container .card img {
+  max-height: 350px;
+  height: 350px;
+  min-height: 350px;
+}
+.main-container .allparkinglots-container .card img:hover {
+  filter: blur(1px) grayscale(100);
+  border: 1px solid black;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+.main-container .allparkinglots-container .card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 799px) {
+  .main-container {
+    top: 85px;
+  }
+  .map-container {
+    height: 350px !important;
+  }
+  .card img {
+    max-height: 250px !important;
+    height: 250px !important;
+    min-height: 250px !important;
+  }
+}
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other *//*# sourceMappingURL=otoparklar.css.map */

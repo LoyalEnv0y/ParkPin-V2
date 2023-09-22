@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Otopark görüntüleme sayfasına hoşgeldiniz. Arabanız için güvenli bir otopark rezervasyonu yaptırmanın tam zamanı,
+  Parkpin ile bu deneyimi yaşayabilirsiniz. Sizin malınız bizim malımızdır!">
+  <meta name="keywords" content="otopark,parkpin,rezervasyon,akıllı otopark,park etme,havalimanı">
+  <meta name="author" content="Ayberk Yavaş">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Otopark Bilgileri | Parkpin</title>
+  <link rel="stylesheet" href="/cssAy/singlepage.css" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <!-- FONT ICIN -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/ec613c6134.js" crossorigin="anonymous"></script>
+  <script src="/jsAy/main.js"></script>
+  <script src="/jsAy/rating.js"></script>
+  <!-- MapBox -->
+  <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' /> -->
+</head>
+
+<body>
+  <!--================ Loader Başlangıç =================-->
+  <div id="loader"></div>
+  <!--================ Loader Bitiş =================-->
+
+  <!--================ Demo Başlangıç =================-->
+
+  <div id="demo-div">
+    <div class="shineline"></div>
+    <ul>
+      <li>
+        <h3>Demo Version - V1.2 - <a href="https://discord.gg/xtBA3vsj" target="_blank"
+            style="color: white; text-decoration: none;">
+            <i class="fa-brands fa-discord"></i>
+          </a></h3>
+      </li>
+    </ul>
+  </div>
+
+  <!--================ Demo Bitiş =================-->
+
+  <!--================ Header Başlangıç =================-->
+  <header>
+    <div class="header">
+      <div id="mainLogo" class="mainLogo">
+        <div id="mainLogoDot"><img src="/img/logo/mainLogo.png" alt="Logo"></div>
+        <h6><a href="/" style="text-decoration: none; color: black; cursor: default;">parkpin</a></h6>
+      </div>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="nav-icon"></span></label>
+      <ul class="menu">
+        <li><a href="/parkingLots">Otoparklar</a></li>
+
+        <% if (!currentUser) { %>
+          <li><a href="/login">Giriş Yap</a></li>
+        <% } else { %>
+          <li>
+            <a href="/me" class="account-profile">
+              <span class="account-profile-mobile">Hesabım</span>
+              <div class="profile">
+                <img src="<%= currentUser.image.avatar %>">
+              </div>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </header>
+  <!--================ Header Bitiş =================-->
+
+  <!--================ Main Alanı Başlangıç =================-->
+  <main>
+
+    <div class="main-container">
+      <section>
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-inner">
+            <% parkingLot.images.forEach((img, i) =>  { %>
+                <div class="carousel-item <%= (i == 0) ? "active" : "" %>">
+                    <img src="<%= img.url %>" class="d-block w-100" alt="ParkingLot Image">
+                </div>
+            <% }) %>
+ 
+            <!-- <div class="carousel-item">
+              <div id="map" style="width: 100%; height: 100%;"></div>
+            </div> -->
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <div class="container-fluid">
+        <div class="sidebar">
+          <div class="card">
+            <img src="<%= parkingLot.images[0].url %>" class="card-img-top" alt="Otopark resmi">
+            <div class="card-body">
+              <h5 class="card-title"><%= parkingLot.name %></h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos pariatur aliquam ut.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Puanlama:</b>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </li>
+              <li class="list-group-item"><b>Konum:</b> <%= parkingLot.location %></li>
+              <!-- EKLEYEN KİŞİNİN ADI -->
+              <li class="list-group-item"><b>Ekleyen:</b> <%= parkingLot.owner.username %></li>
+              <!------------------------->
+            </ul>
+            <div class="card-body">
+              <a href="/parkingLots" class="card-link">Tüm Otoparklar</a>
+
+              <% if (currentUser && parkingLot.owner.equals(currentUser)) { %>
+                <a href="/parkingLots/<%= parkingLot._id %>/edit" class="card-link">Düzenle</a>
+              <% } %>
+              <!------------------------------->
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="card text-center">
+            <div class="card-header">
+              Rezervasyon Yap
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Otoparktan yer ayırt</h5>
+              <p class="card-text">Bu otoparkı beğendin mi ? Hemen yer ayırabilirsin.</p>
+              
+              <% if (currentUser) { %>
+                <a href="/parkingLots/<%= parkingLot._id %>/reservation" class="btn btn-primary">Rezervasyon</a>
+              <% } else {%>
+                <p class="text-danger">Lütfen Rezarvasyon için <a href="/login"> giriş yapın</a></p>
+              <% } %>
+            </div>
+          </div>
+        </div>
+
+        <!--===== MAIN ALANI BASLANGIC =====-->
+
+        <div class="mainbar">
+
+          <!--==== Slot Alanı Başlangıç ====-->
+          <form action="/parkingLots/<%= parkingLot._id %>/reservation" method="POST" novalidate class="validated-form"
+            id="reserve-form">
+            <div class="slot-table">
+              <h2>Kat Haritası</h2>
+              <hr>
+              <br>
+              <div class="slot-map mb-3">
+                <div class="slots-display">
+                  <% let j = 0; %>
+                  <% for(let slot of parkingLot.floors[0].slots) { %>
+                    <button class="slot-button <%= (slot.isFull) ? 'unavailable' : 'available' %>" type="button" data-slot-id="<%= slot._id %>" <%= (slot.isFull) ? 'disabled' : '' %>>
+
+                      <%= j + 1 %>
+                    </button>
+                    <% j++ %>
+                  <% } %>
+                </div>
+
+                <div class="floor-display">
+                  <% for(let floor of parkingLot.floors) { %>
+                    <button class="floor-button" type="button" data-floor-id="<%= floor._id %>">
+                        <%= floor.floorNum %>
+                    </button>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!--==== Slot Alanı Bitiş ====-->
+
+          <!--==== Fiyat Alanı Başlangıç ====-->
+
+          <div class="price-container">
+            <h2>Fiyat Listesi</h2>
+            <hr>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Başlangıç Saati</th>
+                  <th scope="col">Bitiş Saati</th>
+                  <th scope="col">Fiyat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(const price of parkingLot.priceTable) { %>
+                  <tr>
+                    <td scope="row"><%= price.start %></td>
+                    <td><%= price.end %></td>
+                    <td><%= price.price %></td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+
+          <!--==== Fiyat Alanı Bitiş ====-->
+
+          <!--==== Yorum Alanı Başlangıç ====-->
+
+          <div class="comment-container">
+            <h2>Yorumlar</h2>
+            <hr>
+            <div class="inner-comment-container">
+              <div>
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+                  rel="stylesheet">
+                <section class="content-item" id="comments">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <form action="/parkingLots/<%= parkingLot._id %>/reviews" method="POST">
+                          <h3 class="pull-left">Yorum Ekle</h3>
+                          <% if (currentUser) { %>
+                            <button class="btn btn-normal pull-right">Gönder</button>
+                          <% } else {%>
+                            <p class="text-danger pull-right">Lütfen Yourm bırakmak için <a href="/login"> giriş yapın</a></p>
+                          <% } %>  
+                          <fieldset>
+                            <div class="row">
+                              <div class="col-sm-3 col-lg-2 hidden-xs">
+                                <img class="img-responsive" src="<%= (currentUser) ? currentUser.image.url : 'https://res.cloudinary.com/dlie9x7yk/image/upload/v1684584394/ParkPin/Defaults/DefaultUserImage.jpg' %>"
+                                  alt="">
+                              </div>
+                              <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                <div class="mb-3">
+                                  <fieldset class="starability-heart">
+                                    <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]"
+                                      value="1" checked aria-label="No rating." />
+                                    <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                                    <label for="first-rate1" title="Terrible">1
+                                      star</label>
+                                    <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                    <label for="first-rate2" title="Not good">2 stars</label>
+                                    <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                    <label for="first-rate3" title="Average">3 stars</label>
+                                    <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                    <label for="first-rate4" title="Very good">4 stars</label>
+                                    <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                                    <label for="first-rate5" title="Amazing">5 stars</label>
+                                  </fieldset>
+                                </div>
+                                <div class="mb-3">
+                                  <input type="text" class="form-control" id="commentTitle" name="review[title]" placeholder="Başlık"
+                                    required>
+                                </div>
+                                <textarea class="form-control" id="message" name="review[body]" placeholder="Yorumunuzu yazınız."
+                                  required=""></textarea>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </form>
+
+                        <h3><%= parkingLot.reviews.length %> Yorum</h3>
+
+                        <!-- COMMENT 1 - START -->
+                        <% for(const review of parkingLot.reviews) {%>
+                          <div class="media" id="review-<%= review._id %>">
+                            
+                            <a class="pull-left" href="#"><img class="media-object"
+                                src="<%= review.author.image.url %>"></a>
+                            <div class="media-body">
+                              <h4 class="media-heading"><%= review.title %></h4>
+                              <p><%= review.body %></p>
+                              <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li class="comment-stars"><b>Puan:</b>
+                                  <% for(let i = 0; i < 5; i++) { %>
+                                    <i class="fa fa-star <%= (i < review.rating) ? 'checked' : '' %>"></i>
+                                  <% } %>
+                                </li>
+                                <li><i class="fa fa-thumbs-up" style="color:#1877f2;"></i> <span><%= review.votes %></span></li>
+                                <li><i class="fa-solid fa-at"></i><%= review.author.username %></li>
+                              </ul>
+                              <ul class="list-unstyled list-inline media-detail pull-right" id="likereplybtn">
+                                <li class="">
+                                  <button class="likeButton"
+                                  data-review-id="<%= review._id %>" data-parkingLot-id="<%= parkingLot._id %>" data-user-id="<%= (currentUser) ? currentUser._id : '' %>" <%= (!currentUser) ? 'disabled' : '' %>>
+                                  <i class="fa fa-thumbs-up"></i> <span>Beğen</span>
+                                  </button>
+                                </li>
+
+                                <% if (currentUser && review.author.equals(currentUser)) { %>
+                                  <li>
+                                    <a href="/parkingLots/<%= parkingLot._id %>/reviews/<%= review._id %>/edit">
+                                      <button class="replyButton">
+                                        <i class="fa-solid fa-pen-to-square"></i> <span>Düzenle</span>
+                                      </button>
+                                    </a>
+                                  </li>
+                                <% } %>
+                              </ul>
+                            </div>
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                </section>
+              </div>
+            </div>
+          </div>
+          <!--==== Yorum Alanı Bitiş ====-->
+        </div>
+        <!--===== MAIN ALANI Bitis =====-->
+
+      </div>
+    </div>
+  </main>
+  <br><br>
+  <!--================ Main ALanı Bitiş ================-->
+
+  <!--================ Footer Alanı Başlangıç ================-->
+  <footer class="footer">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="footer-menu">
+      <li class="menu__item"><a class="menu__link" href="/">Ana Sayfa</a></li>
+      <li class="menu__item"><a class="menu__link" href="/parkingLots">Otoparklar</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Hakkımızda</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Takımımız</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">İletişim</a></li>
+
+    </ul>
+    <p>&copy;2023 <a style="color:#fff; text-decoration: none;" href="ayberkyavas.com" target="_blank">
+        YAVAS</a> | Tüm Hakları Saklıdır.</p>
+  </footer>
+  <!--================ Footer Alanı Bitiş ================-->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+    crossorigin="anonymous"></script>
+    
+    <script src="/js/floorSlotButtons.js"></script>
+    <script src="/js/likeReview.js"></script>
+    <script src="/js/validateForm.js"></script>
+</body>
+
+</html>

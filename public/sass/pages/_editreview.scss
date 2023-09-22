@@ -1,0 +1,89 @@
+.header {
+    height: 60px !important;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center !important;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .header a {
+    color: black;
+  }
+  .header a span {
+    font-size: 12px;
+  }
+  .header img {
+    padding: 0 !important;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .main-container {
+    width: 100%;
+    height: auto !important;
+    min-height: 800px;
+    margin-bottom: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: 130px;
+  }
+  
+  .review-container {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .review-container form {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    flex-direction: column;
+  }
+  .review-container form h3 {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    font-family: "Inter", sans-serif !important;
+    margin-bottom: 50px;
+  }
+  .review-container form img {
+    width: 150px;
+    height: 150px;
+  }
+  .review-container form fieldset {
+    width: 100%;
+  }
+  .review-container form h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  
+  #colorpicker {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  #colorpicker input {
+    margin-left: 10px;
+  }
+  
+  @media screen and (max-width: 799px) {
+    .review-container form {
+      width: 90% !important;
+    }
+    .main-container {
+      top: 88px !important;
+    }
+  }
