@@ -40,10 +40,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Mongoose
 const mongoose = require('mongoose');
+const DbString = process.env.DB_URL || 'mongodb://127.0.0.1:27017/ParkPin';
 
 mongoose.set('strictQuery', true);
 async function main() {
-	await mongoose.connect('mongodb://127.0.0.1:27017/ParkPin',)
+	await mongoose.connect(DbString)
 		.then(() => console.log('Mongodb connection successful'));
 }
 main().catch(() => console.log('Mongodb connection failed'));
